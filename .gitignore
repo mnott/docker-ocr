@@ -1,0 +1,12 @@
+# Mac Crap
+.DS_Store
+
+# Dev Crap we don't want to share
+scratch
+
+# Source
+resources
+build.sh
+
+# Binary
+pdfocr.zip

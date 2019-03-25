@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# Configuration
+#
+
+# Mount point
+MP=/data/Ablage
+
+# Subdirectory within mount point to run OCR in
+SD=Ablegen
+
+#
+# Nothing to change down here
+#
+export LD_LIBRARY_PATH=/opt/ABBYYOCR
+
+(
+  cd "$MP"
+  find "$SD" -not -iwholename '*.AppleDouble*' -iname "*.pdf" -type f -print0 | while read -d $'\0' file;
+  	do
+  		echo "$file...";
+  		#
+		# Reset Page Counter
+		#
+		(
+		  cd /var/lib
+		  rm -rf /var/lib/frengine >/dev/null 2>&1
+		  unzip frengine.zip >/dev/null 2>&1
+		)
+		#
+		# Run OCR
+		#
+		java -jar /usr/local/bin/pdfocr.jar "$file" 2>&1
+  	done
+)
+
