@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /Volumes/VMWare/ocr
+cd /Volumes/Daten/VMs/ocr
 
 export PATH=$PATH:/usr/local/bin
 

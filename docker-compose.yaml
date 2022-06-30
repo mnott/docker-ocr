@@ -2,13 +2,14 @@ version: '3'
 
 services:
   docker-ocr:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: $PWD/Dockerfile
     image: mnott/docker-ocr
     mac_address: 08:00:27:81:45:cb
     volumes:
-      - ~/Cloud/02 - Ablegen:/data/Ablage/Ablegen
+      - ~/Cloud/02 - Ablegen:/data/Ablage
     environment:
       - DISPLAY
     stdin_open: true
